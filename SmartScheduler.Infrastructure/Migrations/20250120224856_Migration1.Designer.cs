@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartScheduler.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using SmartScheduler.Infrastructure.Data;
 namespace SmartScheduler.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250120224856_Migration1")]
+    partial class Migration1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,8 +74,8 @@ namespace SmartScheduler.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e40efb60-9548-4224-bca9-71e23cd23569"),
-                            PasswordHash = "$2a$11$zZvy4aNrWiq1.gwVoeO44O6wgAMtAJ.AbCVg6NdICcg0WjNKU1hd6",
+                            Id = new Guid("318739db-4ef0-4da5-b56c-074c851f0091"),
+                            PasswordHash = "$2a$11$MiMO4ZlNfQDUBT6IBfUaD.jXbhFlwMobI1n1Mo.9lQaYsDSIODzfG",
                             Username = "admin"
                         });
                 });
