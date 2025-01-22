@@ -12,8 +12,8 @@ using SmartScheduler.Infrastructure.Data;
 namespace SmartScheduler.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250120224856_Migration1")]
-    partial class Migration1
+    [Migration("20250122101749_Migration-Authentication")]
+    partial class MigrationAuthentication
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,8 +74,8 @@ namespace SmartScheduler.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("318739db-4ef0-4da5-b56c-074c851f0091"),
-                            PasswordHash = "$2a$11$MiMO4ZlNfQDUBT6IBfUaD.jXbhFlwMobI1n1Mo.9lQaYsDSIODzfG",
+                            Id = new Guid("16322660-b413-4bdf-a648-4ba3eaf404ce"),
+                            PasswordHash = "$2a$11$9XRfRnUTLjX5Rr4ZNs/zfOdoKJTfp49GUkQoaT0Ma808Frc.qQdmC",
                             Username = "admin"
                         });
                 });

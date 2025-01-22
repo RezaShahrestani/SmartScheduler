@@ -1,5 +1,5 @@
-﻿using BCrypt.Net;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using SmartScheduler.Domain.Entities;
 
 namespace SmartScheduler.Infrastructure.Data
@@ -10,6 +10,13 @@ namespace SmartScheduler.Infrastructure.Data
 
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<User> Users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
+
+            optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,8 +31,5 @@ namespace SmartScheduler.Infrastructure.Data
 
             modelBuilder.Entity<User>().HasData(adminUser);
         }
-
-
     }
-
 }

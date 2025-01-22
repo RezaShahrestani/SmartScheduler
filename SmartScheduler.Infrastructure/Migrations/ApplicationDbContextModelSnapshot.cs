@@ -71,8 +71,8 @@ namespace SmartScheduler.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e40efb60-9548-4224-bca9-71e23cd23569"),
-                            PasswordHash = "$2a$11$zZvy4aNrWiq1.gwVoeO44O6wgAMtAJ.AbCVg6NdICcg0WjNKU1hd6",
+                            Id = new Guid("16322660-b413-4bdf-a648-4ba3eaf404ce"),
+                            PasswordHash = "$2a$11$9XRfRnUTLjX5Rr4ZNs/zfOdoKJTfp49GUkQoaT0Ma808Frc.qQdmC",
                             Username = "admin"
                         });
                 });

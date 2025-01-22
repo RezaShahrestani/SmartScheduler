@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace SmartScheduler.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class Migration1 : Migration
+    public partial class MigrationAuthentication : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -27,7 +27,7 @@ namespace SmartScheduler.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "PasswordHash", "Username" },
-                values: new object[] { new Guid("318739db-4ef0-4da5-b56c-074c851f0091"), "$2a$11$MiMO4ZlNfQDUBT6IBfUaD.jXbhFlwMobI1n1Mo.9lQaYsDSIODzfG", "admin" });
+                values: new object[] { new Guid("16322660-b413-4bdf-a648-4ba3eaf404ce"), "$2a$11$9XRfRnUTLjX5Rr4ZNs/zfOdoKJTfp49GUkQoaT0Ma808Frc.qQdmC", "admin" });
         }
 
         /// <inheritdoc />
