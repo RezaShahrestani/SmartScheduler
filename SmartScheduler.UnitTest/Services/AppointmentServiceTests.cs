@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory.Query.Internal;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 using SmartScheduler.Application.Services;
 using SmartScheduler.Domain.Entities;
 using SmartScheduler.Infrastructure.Data;
@@ -9,7 +10,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace SmartScheduler.UnitTest.Services
 {
     public class AppointmentServiceTests
@@ -76,32 +76,44 @@ namespace SmartScheduler.UnitTest.Services
         }
 
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        // //TODO: Need to fix
         [Fact]
         public async Task GetAppointmentByIdAsync_ShouldReturnCorrectAppointment()
         {
             // Arrange
-            var appointment = new Appointment {  Title = "Test Meeting" };
+            var appointment = new Appointment
+            {
+                Title = "Doctor Appointment",
+                Start = new DateTime(2025, 2, 10, 14, 0, 0),
+                End = new DateTime(2025, 2, 10, 15, 0, 0),
+                Location = "Clinic Room 5",
+                IsConfirmed = true
+            };
+            appointment.SetId();
             _dbContext.Appointments.Add(appointment);
             await _dbContext.SaveChangesAsync();
+
 
             // Act
             var result = await _appointmentService.GetAppointmentByIdAsync(appointment.Id);
 
             // Assert
             result.Should().NotBeNull();
-            result.Title.Should().Be("Test Meeting");
+            result.Title.Should().Be("Doctor Appointment");
         }
 
         [Fact]
         public async Task CreateAppointmentAsync_ShouldAddAppointmentToDatabase()
         {
             // Arrange
-            var appointment = new Appointment { Title = "New Meeting" };
+            var appointment = new Appointment
+            {
+                Title = "Team Meeting",
+                Start = new DateTime(2025, 3, 5, 9, 30, 0),
+                End = new DateTime(2025, 3, 5, 10, 30, 0),
+                Location = "Conference Room A",
+                IsConfirmed = false
+            };
+
 
             // Act
             await _appointmentService.CreateAppointmentAsync(appointment);
@@ -109,16 +121,25 @@ namespace SmartScheduler.UnitTest.Services
 
             // Assert
             result.Should().NotBeNull();
-            result.Title.Should().Be("New Meeting");
+            result.Title.Should().Be("Team Meeting");
         }
 
         [Fact]
         public async Task UpdateAppointmentAsync_ShouldModifyExistingAppointment()
         {
             // Arrange
-            var appointment = new Appointment { Title = "Old Title" };
+            var appointment = new Appointment
+            {
+                Title = "New Title",
+                Start = new DateTime(2025, 4, 1, 11, 0, 0),
+                End = new DateTime(2025, 4, 1, 12, 0, 0),
+                Location = "Online (Zoom)",
+                IsConfirmed = false
+            };
+            appointment.SetId();
             _dbContext.Appointments.Add(appointment);
             await _dbContext.SaveChangesAsync();
+
 
             // Act
             appointment.Title = "Updated Title";
@@ -133,9 +154,18 @@ namespace SmartScheduler.UnitTest.Services
         public async Task DeleteAppointmentAsync_ShouldRemoveAppointmentFromDatabase()
         {
             // Arrange
-            var appointment = new Appointment {  Title = "To Be Deleted" };
+            var appointment = new Appointment
+            {
+                Title = "Lunch with Client",
+                Start = new DateTime(2025, 5, 15, 13, 0, 0),
+                End = new DateTime(2025, 5, 15, 14, 0, 0),
+                Location = "Downtown Café",
+                IsConfirmed = true
+            };
+            appointment.SetId();
             _dbContext.Appointments.Add(appointment);
             await _dbContext.SaveChangesAsync();
+
 
             // Act
             await _appointmentService.DeleteAppointmentAsync(appointment.Id);
