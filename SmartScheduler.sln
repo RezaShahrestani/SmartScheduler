@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
+VisualStudioVersion = 17.12.35521.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScheduler.WebApi", "SmartScheduler\SmartScheduler.WebApi.csproj", "{21D90E36-C4B5-4966-9CB7-EC33C1861502}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScheduler.Domain", "SmartScheduler.Domain\SmartScheduler.Domain.csproj", "{4B09C970-C3F9-479A-81EF-32D2AFD86EFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScheduler.Infrastructure", "SmartScheduler.Infrastructure\SmartScheduler.Infrastructure.csproj", "{318CEBA1-FAF6-4725-B8D6-28B2F2567B0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartScheduler.UnitTest", "SmartScheduler.UnitTest\SmartScheduler.UnitTest.csproj", "{0BF4ACC1-BBFE-4141-B3A2-916CCDC41850}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{318CEBA1-FAF6-4725-B8D6-28B2F2567B0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{318CEBA1-FAF6-4725-B8D6-28B2F2567B0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{318CEBA1-FAF6-4725-B8D6-28B2F2567B0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BF4ACC1-BBFE-4141-B3A2-916CCDC41850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BF4ACC1-BBFE-4141-B3A2-916CCDC41850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BF4ACC1-BBFE-4141-B3A2-916CCDC41850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BF4ACC1-BBFE-4141-B3A2-916CCDC41850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
